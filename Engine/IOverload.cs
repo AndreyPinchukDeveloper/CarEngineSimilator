@@ -8,9 +8,6 @@ namespace Engine
 {
     interface IOverload
     {
-        private float OverloadSpeed(int overloadSpeed, float iecewiseLinerDependency, decimal dependsOfTorque, decimal dependsOfSpeed, float speed)
-        {
-            return overloadSpeed;
-        }
+        public void Overload();
     }
 }
