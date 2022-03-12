@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Engine
 {
-    class FormulaConstants:IAcceleration
+    public class FormulaConstants:IAcceleration
     {
         public byte inertia = 10;
         public byte limitTemperature = 110;

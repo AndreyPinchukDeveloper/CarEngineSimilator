@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace Engine
 {
-    class InputData
+    public class InputData
     {
         static public string strTemperature = "";
         static public float temperatureEngine;
