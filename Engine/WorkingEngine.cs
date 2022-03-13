@@ -9,18 +9,20 @@ namespace Engine
     public class WorkingEngine: IOverload
     {
         FormulaConstants formulaConstant = new FormulaConstants();
-
-        InputData inputData = new InputData();
-
+        
         public byte time = 0;
         private float cold = 0;
         private float overload = 0;
+        public static float temperatureWorkingEngine;
+        public static float temperatureOutside;
 
-        public void StartEngine()
+        public int StartEngine(float temperature, float tempOut)
         {
             formulaConstant.CalculateAcceleration();
-
-            while (InputData.temperatureEngine < 110)
+            temperatureWorkingEngine = temperature;
+            temperatureOutside = tempOut;
+            
+            while (temperatureWorkingEngine < 110)
             {
                 Overload();
                 time++;
@@ -33,6 +35,7 @@ namespace Engine
                     break;
                 }
             }
+            return time;
         }
 
         public void Overload()
@@ -43,17 +46,17 @@ namespace Engine
                 break;
             }
             
-            InputData.temperatureEngine += overload;
+            temperatureWorkingEngine += overload;
 
-            if (InputData.temperatureOutside > InputData.temperatureEngine)
+            if (temperatureOutside > temperatureWorkingEngine)
             {
                 cold = formulaConstant.CalculateCold();
-                InputData.temperatureEngine -= cold;
+                temperatureWorkingEngine -= cold;
             }
             else
             {
                 cold = formulaConstant.CalculateColdWithoutMinus();
-                InputData.temperatureEngine -= cold;
+                temperatureWorkingEngine -= cold;
             }
         }
     }

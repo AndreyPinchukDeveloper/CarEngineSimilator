@@ -9,14 +9,63 @@ using System.Threading.Tasks;
 namespace Engine.Tests
 {
     [TestClass()]
-    public class ProgramTests
+    public class WorkingEngineTest
     {
-        [TestMethod()]
-        public void MainTest()
+        #region StartEngineTest(1-5)
+        [TestMethod]
+        public void StartEngineTest1()
         {
-            Assert.Fail();
-            InputData.GetInformation();
-            Assert.AreEqual<int>(16, 100);
+            WorkingEngine workingEngine = new WorkingEngine();
+            int testTemperature = -40;
+            int testRightTemperature = 101;
+
+            int test1 = workingEngine.StartEngine(testTemperature, testTemperature);
+            Assert.AreEqual<int>(testRightTemperature, test1);
         }
+
+        [TestMethod]
+        public void StartEngineTest2()
+        {
+            WorkingEngine workingEngine = new WorkingEngine();
+            int testTemperature = 0;
+            int testRightTemperature = 101;
+
+            int test1 = workingEngine.StartEngine(testTemperature, testTemperature);
+            Assert.AreEqual<int>(testRightTemperature, test1);
+        }
+
+        [TestMethod]
+        public void StartEngineTest3()
+        {
+            WorkingEngine workingEngine = new WorkingEngine();
+            int testTemperature = 20;
+            int testRightTemperature = 101;
+
+            int test1 = workingEngine.StartEngine(testTemperature, testTemperature);
+            Assert.AreEqual<int>(testRightTemperature, test1);
+        }
+
+        [TestMethod]
+        public void StartEngineTest4()
+        {
+            WorkingEngine workingEngine = new WorkingEngine();
+            int testTemperature = 50;
+            int testRightTemperature = 17;
+
+            int test1 = workingEngine.StartEngine(testTemperature, testTemperature);
+            Assert.AreEqual<int>(testRightTemperature, test1);
+        }
+
+        [TestMethod]
+        public void StartEngineTest5()
+        {
+            WorkingEngine workingEngine = new WorkingEngine();
+            int testTemperature = 100;
+            int testRightTemperature = 5;
+
+            int test1 = workingEngine.StartEngine(testTemperature, testTemperature);
+            Assert.AreEqual<int>(testRightTemperature, test1);
+        }
+        #endregion
     }
 }

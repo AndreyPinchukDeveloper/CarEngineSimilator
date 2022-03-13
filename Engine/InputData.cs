@@ -9,12 +9,12 @@ namespace Engine
 {
     public class InputData
     {
-        static public string strTemperature = "";
-        static public float temperatureEngine;
-        static public float temperatureOutside;
-        static public void GetInformation()
-        {
+        public string strTemperature = "";
+        public float temperatureEngine;
+        public float temperatureOutside;
 
+        public void GetInformation()
+        {
             WorkingEngine workingEngine = new WorkingEngine();
 
             strTemperature = Console.ReadLine();
@@ -38,11 +38,11 @@ namespace Engine
 
             if (temperatureOutside <= -45)
             {
-                Console.WriteLine("Your engine have benn freezed !");
+                Console.WriteLine("Your engine have been freezed !");
                 Console.ReadLine();
             }
 
-            workingEngine.StartEngine();
+            workingEngine.StartEngine(temperatureEngine, temperatureOutside);
 
             if (workingEngine.time < 100)
             {

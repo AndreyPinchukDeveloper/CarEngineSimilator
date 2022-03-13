@@ -10,9 +10,8 @@ namespace Engine
     {
         public static void Main(string[] args)
         {
-            InputData.GetInformation();
-            /*InputData inputDataMain = new InputData();
-            inputDataMain.GetInformation();*/
+            InputData mainInputData = new InputData();
+            mainInputData.GetInformation();
         }
     }
 }

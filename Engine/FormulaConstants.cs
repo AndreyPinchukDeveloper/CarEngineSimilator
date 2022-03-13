@@ -30,14 +30,13 @@ namespace Engine
 
         public float CalculateCold()
         {
-            
-            calculateCold = coefficient * (InputData.temperatureOutside - InputData.temperatureEngine);
+            calculateCold = coefficient * (WorkingEngine.temperatureOutside - WorkingEngine.temperatureWorkingEngine);
             return calculateCold;
         }
 
         public float CalculateColdWithoutMinus()
         {
-            calculateCold = coefficient * (InputData.temperatureEngine - InputData.temperatureOutside);
+            calculateCold = coefficient * (WorkingEngine.temperatureWorkingEngine - WorkingEngine.temperatureOutside);
             return calculateCold;
         }
 
